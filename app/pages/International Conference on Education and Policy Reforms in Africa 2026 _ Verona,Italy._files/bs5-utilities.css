@@ -1,0 +1,54 @@
+/*
+ * Bootstrap 5 utility classes used by this site, backported onto Bootstrap 4.
+ *
+ * The markup mixes the two conventions: it is built on Bootstrap 4 (ml-auto,
+ * mr-auto, col-xs-*, data-toggle) but a number of templates also reach for
+ * Bootstrap 5 spelling (me-2, fw-bold, text-start, gap-*, g-*, fs-*). The French
+ * layout used to paper over this by loading Bootstrap 5.3.0 on top of Bootstrap
+ * 4.6.2 -- two full frameworks, ~230KB, with overlapping and conflicting rules,
+ * which cost LCP on every page. The English layout never loaded 5.x at all, so
+ * these classes silently did nothing there.
+ *
+ * This file defines only the handful of BS5 utilities the templates actually use,
+ * with the same values Bootstrap 5 gives them ($spacer: 1rem). Load it after
+ * Bootstrap 4. If a template starts using another BS5 utility, add it here rather
+ * than pulling the framework back in.
+ */
+
+/* Margin -- logical (start/end) equivalents of BS4's l/r utilities, LTR site. */
+.ms-2 { margin-left: 0.5rem !important; }
+.me-2 { margin-right: 0.5rem !important; }
+.ms-auto { margin-left: auto !important; }
+
+/* Font weight */
+.fw-semibold { font-weight: 600 !important; }
+.fw-bold { font-weight: 700 !important; }
+
+/* Font size (BS5 .fs-* mirror the heading scale) */
+.fs-3 { font-size: calc(1.3rem + 0.6vw) !important; }
+.fs-5 { font-size: 1.25rem !important; }
+@media (min-width: 1200px) {
+    .fs-3 { font-size: 1.75rem !important; }
+}
+
+/* Text alignment */
+.text-start { text-align: left !important; }
+.text-end { text-align: right !important; }
+
+/* Flex/grid gap */
+.gap-2 { gap: 0.5rem !important; }
+.gap-3 { gap: 1rem !important; }
+
+/* Row gutters. Bootstrap 4 rows carry fixed -15px side margins and 15px column
+   padding, so each .g-* has to restate both halves to take effect. */
+.row.g-0 { margin-right: 0; margin-left: 0; }
+.row.g-0 > [class*="col"] { padding-right: 0; padding-left: 0; }
+
+.row.g-2 { margin-right: -0.25rem; margin-left: -0.25rem; margin-top: -0.5rem; }
+.row.g-2 > [class*="col"] { padding-right: 0.25rem; padding-left: 0.25rem; margin-top: 0.5rem; }
+
+.row.g-3 { margin-right: -0.5rem; margin-left: -0.5rem; margin-top: -1rem; }
+.row.g-3 > [class*="col"] { padding-right: 0.5rem; padding-left: 0.5rem; margin-top: 1rem; }
+
+.row.g-4 { margin-right: -0.75rem; margin-left: -0.75rem; margin-top: -1.5rem; }
+.row.g-4 > [class*="col"] { padding-right: 0.75rem; padding-left: 0.75rem; margin-top: 1.5rem; }
